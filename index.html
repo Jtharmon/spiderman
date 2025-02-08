@@ -6,8 +6,7 @@
   <title>Theme Switch Website</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="theme1">
-  <div class="switch-container">
+<div class="switch-container">
     <img src="img/spiderman-logo.png" alt="Spider-Man Theme" class="theme-icon left-icon">
     <label class="switch">
       <input type="checkbox" id="themeToggle">
@@ -15,19 +14,26 @@
     </label>
     <img src="img/peter-parker.jpeg" alt="Peter Parker Theme" class="theme-icon right-icon">
   </div>
-  
+
   <div class="container theme1-content">
     <h1>Welcome to the Spider-Man Universe</h1>
     <img src="img/spiderman-logo.jpg" alt="Spider-Man">
     <p>Spider-Man, the friendly neighborhood superhero, swings into action to protect the city.</p>
   </div>
-
-  <div class="container theme2-content hidden">
+  <div class="container theme2-content hidden" id="peterParkerContent">
     <h1>Welcome to Peter Parker's World</h1>
     <img src="img/peterparker.jpg" alt="Peter Parker">
     <p>Peter Parker, a brilliant photographer and scientist, balances life between heroism and normalcy.</p>
+  
+    <!-- Photography Blog Section -->
+    <div class="photo-blog">
+      <img src="img/spiderman-logo.png" alt="Photography Shot 1">
+      <img src="img/photo2.jpg" alt="Photography Shot 2">
+      <img src="img/photo3.jpg" alt="Photography Shot 3">
+      <img src="img/photo4.jpg" alt="Photography Shot 4">
+    </div>
   </div>
-
+  
   <script src="script.js"></script>
 </body>
 </html>
