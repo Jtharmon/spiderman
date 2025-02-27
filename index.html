@@ -1,40 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Theme Switch Website</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: gray;
+        }
+        header {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: green;
+            text-align: center;
+            font-size: 2em;
+        }
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+        .portfolio img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .about, .contact {
+            padding: 40px;
+            text-align: center;
+            background: blue;
+            margin: 20px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
-<div class="switch-container">
-    <img src="img/spiderman-logo.png" alt="Spider-Man Theme" class="theme-icon left-icon">
-    <label class="switch">
-      <input type="checkbox" id="themeToggle">
-      <span class="slider"></span>
-    </label>
-    <img src="img/peter-parker.jpeg" alt="Peter Parker Theme" class="theme-icon right-icon">
-  </div>
-
-  <div class="container theme1-content">
-    <h1>Welcome to the Spider-Man Universe</h1>
-    <img src="img/spiderman-logo.jpg" alt="Spider-Man">
-    <p>Spider-Man, the friendly neighborhood superhero, swings into action to protect the city.</p>
-  </div>
-  <div class="container theme2-content hidden" id="peterParkerContent">
-    <h1>Welcome to Peter Parker's World</h1>
-    <img src="img/peterparker.jpg" alt="Peter Parker">
-    <p>Peter Parker, a brilliant photographer and scientist, balances life between heroism and normalcy.</p>
-  
-    <!-- Photography Blog Section -->
-    <div class="photo-blog">
-      <img src="img/spiderman-logo.png" alt="Photography Shot 1">
-      <img src="img/photo2.jpg" alt="Photography Shot 2">
-      <img src="img/photo3.jpg" alt="Photography Shot 3">
-      <img src="img/photo4.jpg" alt="Photography Shot 4">
-    </div>
-  </div>
-  
-  <script src="script.js"></script>
+<body>
+    <header>
+        <h1>Peter Parker Photography</h1>
+    </header>
+    
+    <section class="portfolio">
+        <img src="img/spiderman-logo.png" alt="Photography Sample">
+        <img src="img/peter-parker.jpeg" alt="Photography Sample">
+        <img src="img/spiderman-logo.png" alt="Photography Sample">
+    </section>
+    
+    <section class="about">
+        <h2>About Me</h2>
+        <p>I'm Peter Parker, a passionate photographer capturing moments that tell stories.</p>
+    </section>
+    
+    <section class="contact">
+        <h2>Contact</h2>
+        <p>Email: peter@photography.com</p>
+    </section>
 </body>
 </html>
-

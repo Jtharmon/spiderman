@@ -1,144 +1,61 @@
 /* General Styles */
-body {
+* {
   margin: 0;
-  font-family: 'Helvetica Neue', sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.hidden {
-  display: none;
-}
-
-/* Theme 1 - Spider-Man */
-body.theme1 {
-  background-color: #1a1a1a;
-  color: #e62429;
-}
-
-body.theme1 .container {
-  text-align: center;
-  padding: 50px;
-}
-
-body.theme1 img {
-  width: 50px;
-  border: 5px solid #e62429;
-  border-radius: 8px;
-}
-
-/* Theme 2 - Peter Parker */
-body.theme2 {
-  background-color: #f5f5f5;
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
   color: #333;
 }
 
-body.theme2 .container {
-  text-align: center;
-  padding: 50px;
-}
-
-body.theme2 img {
-  width: 50px;
-  border: 5px solid #333;
-  border-radius: 8px;
-}
-
-/* Theme Toggle Switch */
-.switch-container {
+/* Header */
+header {
+  background: url('hero-image.jpg') no-repeat center center/cover;
+  height: 100vh;
   display: flex;
-  align-items: right;
-  justify-content: right;
-  gap: 15px;
-  position: relative;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-size: 2em;
 }
 
-/* Theme Switch Icons */
-.theme-icon {
-  width: 10px; /* Default size */
+/* Portfolio Section */
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  padding: 20px;
+}
+
+.portfolio img {
+  width: 100%;
   height: auto;
-  cursor: pointer;
-  transition: transform 0.3s ease, width 0.3s ease;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out;
 }
 
-.theme-icon:hover {
-  transform: scale(1.1);
+.portfolio img:hover {
+  transform: scale(1.05);
 }
 
-/* Adjustable Size */
-.theme-icon.small {
-  width: 10px;
+/* About & Contact Sections */
+.about, .contact {
+  padding: 40px;
+  text-align: center;
+  background: white;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.theme-icon.medium {
-  width: 30px;
+.about h2, .contact h2 {
+  margin-bottom: 10px;
 }
 
-.theme-icon.large {
-  width: 30px;
-}
-
-/* Responsive Adjustment */
-@media (max-width: 768px) {
-  .theme-icon {
-    width: 40px; /* Adjust for smaller screens */
-  }
-}
-
-/* Switch Styling */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #4CAF50;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-
-input:checked + .slider {
-  background-color: #4CAF50;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
+.contact p {
+  font-size: 1.1em;
 }
