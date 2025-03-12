@@ -1,68 +1,398 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography Portfolio</title>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spider-Man's Rogues Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: gray;
-        }
-        header {
-            background: url('hero-image.jpg') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: green;
-            text-align: center;
-            font-size: 2em;
-        }
-        .portfolio {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 10px;
-            padding: 20px;
-        }
-        .portfolio img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        .about, .contact {
-            padding: 40px;
-            text-align: center;
-            background: blue;
-            margin: 20px;
-            border-radius: 10px;
-        }
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      .villain-card {
+      transition: transform 0.3s ease;
+      perspective: 1000px;
+      }
+      .villain-card:hover {
+      transform: translateY(-10px);
+      }
+      .card-flip {
+      position: relative;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      }
+      .villain-card:hover .card-flip {
+      transform: rotateY(180deg);
+      }
+      .card-front, .card-back {
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      }
+      .card-back {
+      transform: rotateY(180deg);
+      }
     </style>
-</head>
-<body>
-    <header>
-        <h1>Peter Parker Photography</h1>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF1744",
+              secondary: "#121212",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-secondary text-white min-h-screen">
+    <nav
+      class="fixed w-full bg-secondary/90 backdrop-blur-sm z-50 border-b border-gray-800"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="font-['Pacifico'] text-primary text-3xl">logo</div>
+          <div class="hidden md:flex space-x-8">
+            <a href="#villains" class="hover:text-primary transition-colors"
+              >Villains</a
+            >
+            <a href="#timeline" class="hover:text-primary transition-colors"
+              >Timeline</a
+            >
+            <a href="#battles" class="hover:text-primary transition-colors"
+              >Notable Battles</a
+            >
+            <a href="#news" class="hover:text-primary transition-colors"
+              >News</a
+            >
+          </div>
+          <button
+            class="!rounded-button bg-primary px-6 py-2 hover:bg-primary/80 transition-colors"
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </nav>
+    <header class="pt-24 pb-32 relative overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img
+          src="https://public.readdy.ai/ai/img_res/2c7beb89ffe8005989102ef924c0a431.jpg"
+          class="w-full h-full object-cover opacity-30"
+          alt="City Background"
+        />
+      </div>
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-3xl">
+          <h1 class="text-6xl font-bold mb-6">
+            Spider-Man's<br />Rogues Gallery
+          </h1>
+          <p class="text-xl text-gray-300 mb-8">
+            Explore the most dangerous and iconic villains that have challenged
+            our friendly neighborhood Spider-Man throughout the years.
+          </p>
+          <button
+            class="!rounded-button bg-primary px-8 py-3 text-lg hover:bg-primary/80 transition-colors"
+          >
+            Discover Villains
+          </button>
+        </div>
+      </div>
     </header>
-    
-    <section class="portfolio">
-        <img src="img/spiderman-logo.png" alt="Photography Sample">
-        <img src="img/peter-parker.jpeg" alt="Photography Sample">
-        <img src="img/spiderman-logo.png" alt="Photography Sample">
+    <section id="villains" class="pt-48 pb-40 bg-secondary">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold mb-20 text-center">Major Villains</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+          <div class="villain-card">
+            <div class="card-flip">
+              <div class="card-front bg-gray-800 rounded-lg p-6 h-full">
+                <img
+                  src="https://public.readdy.ai/ai/img_res/8f0c750b48e681cef2b064f574434940.jpg"
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                  alt="Green Goblin"
+                />
+                <h3 class="text-xl font-bold mb-2">Green Goblin</h3>
+                <p class="text-gray-400">
+                  Norman Osborn, driven mad by his own ambition and experimental
+                  formula.
+                </p>
+              </div>
+              <div class="card-back bg-gray-800 rounded-lg p-6">
+                <h4 class="text-lg font-bold mb-2">Powers & Abilities</h4>
+                <ul class="text-sm text-gray-400 mb-4">
+                  <li>• Enhanced Strength</li>
+                  <li>• Advanced Technology</li>
+                  <li>• Genius Intelligence</li>
+                </ul>
+                <p class="text-sm text-gray-400">
+                  First Appearance: Amazing Spider-Man #14
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="villain-card">
+            <div class="card-flip">
+              <div class="card-front bg-gray-800 rounded-lg p-6 h-full">
+                <img
+                  src="https://public.readdy.ai/ai/img_res/746e24621067d17182980cf0b36c4ac6.jpg"
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                  alt="Venom"
+                />
+                <h3 class="text-xl font-bold mb-2">Venom</h3>
+                <p class="text-gray-400">
+                  A symbiotic organism that bonds with its host, granting
+                  incredible powers.
+                </p>
+              </div>
+              <div class="card-back bg-gray-800 rounded-lg p-6">
+                <h4 class="text-lg font-bold mb-2">Powers & Abilities</h4>
+                <ul class="text-sm text-gray-400 mb-4">
+                  <li>• Superhuman Strength</li>
+                  <li>• Shape-shifting</li>
+                  <li>• Spider-Sense Immunity</li>
+                </ul>
+                <p class="text-sm text-gray-400">
+                  First Appearance: Amazing Spider-Man #300
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="villain-card">
+            <div class="card-flip">
+              <div class="card-front bg-gray-800 rounded-lg p-6 h-full">
+                <img
+                  src="doc-octo.jpg"
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                  alt="Doctor Octopus"
+                />
+                <h3 class="text-xl font-bold mb-2">Doctor Octopus</h3>
+                <p class="text-gray-400">
+                  Otto Octavius, a brilliant scientist turned criminal
+                  mastermind.
+                </p>
+              </div>
+              <div class="card-back bg-gray-800 rounded-lg p-6">
+                <h4 class="text-lg font-bold mb-2">Powers & Abilities</h4>
+                <ul class="text-sm text-gray-400 mb-4">
+                  <li>• Mechanical Arms Control</li>
+                  <li>• Genius Intelligence</li>
+                  <li>• Strategic Mastermind</li>
+                </ul>
+                <p class="text-sm text-gray-400">
+                  First Appearance: Amazing Spider-Man #3
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    
-    <section class="about">
-        <h2>About Me</h2>
-        <p>I'm Peter Parker, a passionate photographer capturing moments that tell stories.</p>
+    <section id="timeline" class="pt-48 pb-40 bg-gray-900">
+      <div class="container mx-auto px-6 max-w-5xl">
+        <h2 class="text-4xl font-bold mb-20 text-center">Villain Timeline</h2>
+        <div class="relative">
+          <div
+            class="absolute top-1/2 left-0 transform -translate-y-1/2 w-full h-1 bg-primary"
+          ></div>
+          <div class="flex justify-between items-center">
+            <div class="relative w-1/3 px-4">
+              <div
+                class="w-2 h-2 bg-primary rounded-full absolute top-1/2 right-4 transform -translate-y-1/2"
+              ></div>
+              <div
+                class="bg-gray-800 p-8 rounded-lg shadow-lg hover:bg-gray-700 transition-colors"
+              >
+                <h3 class="text-xl font-bold mb-2">1963</h3>
+                <p class="text-gray-400">First appearance of Doctor Octopus</p>
+              </div>
+            </div>
+            <div class="relative w-1/3 px-4">
+              <div
+                class="w-2 h-2 bg-primary rounded-full absolute top-1/2 right-4 transform -translate-y-1/2"
+              ></div>
+              <div
+                class="bg-gray-800 p-8 rounded-lg shadow-lg hover:bg-gray-700 transition-colors"
+              >
+                <h3 class="text-xl font-bold mb-2">1964</h3>
+                <p class="text-gray-400">Green Goblin makes his debut</p>
+              </div>
+            </div>
+            <div class="relative w-1/3 px-4">
+              <div
+                class="w-2 h-2 bg-primary rounded-full absolute top-1/2 right-4 transform -translate-y-1/2"
+              ></div>
+              <div
+                class="bg-gray-800 p-8 rounded-lg shadow-lg hover:bg-gray-700 transition-colors"
+              >
+                <h3 class="text-xl font-bold mb-2">1988</h3>
+                <p class="text-gray-400">Venom emerges as a new threat</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    
-    <section class="contact">
-        <h2>Contact</h2>
-        <p>Email: peter@photography.com</p>
+    <section id="news" class="py-48 bg-secondary">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold mb-20 text-center">Latest News</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div class="bg-gray-800 rounded-lg overflow-hidden">
+            <img
+              src="https://public.readdy.ai/ai/img_res/97f7aa127b6b592d964b04e2ad3f9a16.jpg"
+              class="w-full h-48 object-cover"
+              alt="Spider-Man News"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">New Villain Emerges in NYC</h3>
+              <p class="text-gray-400 mb-4">
+                A mysterious new threat has appeared in Manhattan...
+              </p>
+              <button
+                class="!rounded-button bg-primary px-4 py-2 text-sm hover:bg-primary/80 transition-colors"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+          <div class="bg-gray-800 rounded-lg overflow-hidden">
+            <img
+              src="https://public.readdy.ai/ai/img_res/b60b8aa76357b8e3b678d6db88323306.jpg"
+              class="w-full h-48 object-cover"
+              alt="Battle Scene"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Epic Battle Downtown</h3>
+              <p class="text-gray-400 mb-4">
+                Spider-Man faces off against multiple villains...
+              </p>
+              <button
+                class="!rounded-button bg-primary px-4 py-2 text-sm hover:bg-primary/80 transition-colors"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+          <div class="bg-gray-800 rounded-lg overflow-hidden">
+            <img
+              src="https://public.readdy.ai/ai/img_res/7771432f6d0c8bd019065a4dd6f71662.jpg"
+              class="w-full h-48 object-cover"
+              alt="Lab Scene"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Secret Lab Discovered</h3>
+              <p class="text-gray-400 mb-4">
+                Hidden facility linked to villain experiments...
+              </p>
+              <button
+                class="!rounded-button bg-primary px-4 py-2 text-sm hover:bg-primary/80 transition-colors"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-</body>
+    <footer class="bg-gray-900 py-20">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div>
+            <div class="font-['Pacifico'] text-primary text-3xl mb-4">logo</div>
+            <p class="text-gray-400">
+              Your ultimate source for Spider-Man's greatest foes.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#villains" class="hover:text-primary transition-colors"
+                  >Villains</a
+                >
+              </li>
+              <li>
+                <a href="#timeline" class="hover:text-primary transition-colors"
+                  >Timeline</a
+                >
+              </li>
+              <li>
+                <a href="#news" class="hover:text-primary transition-colors"
+                  >News</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors"
+              >
+                <i class="ri-twitter-fill ri-lg"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors"
+              >
+                <i class="ri-facebook-fill ri-lg"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors"
+              >
+                <i class="ri-instagram-fill ri-lg"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-4">Newsletter</h4>
+            <form class="space-y-4">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                class="w-full bg-gray-800 border-none rounded px-4 py-2 text-white"
+              />
+              <button
+                type="submit"
+                class="!rounded-button bg-primary w-full px-4 py-2 hover:bg-primary/80 transition-colors"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 Spider-Man's Rogues Gallery. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
